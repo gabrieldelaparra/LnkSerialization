@@ -4,7 +4,7 @@ Tool to serialize/deserialize shortcut links as a human-friendly editable/readab
 
 ## Description
 
-In my daily chores, I use the Win+R shortcuts **a lot** to access network folders, desktop, download or my different applications.
+In my daily chores, I use the Win+R shortcuts **a lot** to access network folders; the desktop and download folders; or my different applications.
 
 Sometimes I need to change my shortcuts in batches:
 
