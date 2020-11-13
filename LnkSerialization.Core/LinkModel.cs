@@ -10,7 +10,29 @@ namespace LnkSerialization.Core
     {
         public LinkModel() { }
 
-        public LinkModel(string filename) => FromFilename(filename);
+        public LinkModel(string filename)
+        {
+            FromFilename(filename);
+        }
+
+        public string Args { get; set; }
+        public string Filename { get; set; }
+        public string Path { get; set; }
+        public string WorkingDirectory { get; set; }
+
+        public void ToLinkFile(string outputPath)
+        {
+            Shortcut.CreateShortcut(Path, Args, WorkingDirectory)
+                .WriteToFile(System.IO.Path.Combine(outputPath, Filename));
+        }
+
+        private void FromArguments(string path, string args, string workingDirectory, string filename)
+        {
+            Path = path;
+            Args = args;
+            WorkingDirectory = workingDirectory;
+            Filename = filename;
+        }
 
         private void FromFilename(string filename)
         {
@@ -27,15 +49,14 @@ namespace LnkSerialization.Core
                        ?? shortcut.ExtraData?.EnvironmentVariableDataBlock?.TargetUnicode
                        ?? shortcut.ExtraData?.EnvironmentVariableDataBlock?.TargetAnsi
                        ?? string.Empty;
-            if (path.IsEmpty())
-            {
+            if (path.IsEmpty()) {
                 var propStoreValues = shortcut
                                           .ExtraData?
                                           .PropertyStoreDataBlock?
                                           .PropertyStore?
                                           .SelectMany(x => x.PropertyStorage)
                                           .Select(x => x.TypedPropertyValue)
-                                          .Select(x => x.Value) 
+                                          .Select(x => x.Value)
                                       ?? Array.Empty<string>();
 
                 var values = propStoreValues
@@ -48,30 +69,12 @@ namespace LnkSerialization.Core
                 if (value.IsNotEmpty())
                     path = value;
             }
+
             var args = shortcut.StringData?.CommandLineArguments ?? string.Empty;
             var workingDir = shortcut.StringData?.WorkingDir ?? string.Empty;
             var name = System.IO.Path.GetFileName(filename);
 
             FromArguments(path, args, workingDir, name);
         }
-
-        private void FromArguments(string path, string args, string workingDirectory, string filename)
-        {
-            Path = path;
-            Args = args;
-            WorkingDirectory = workingDirectory;
-            Filename = filename;
-        }
-
-        public void ToLinkFile(string outputPath)
-        {
-            Shortcut.CreateShortcut(Path, Args, WorkingDirectory)
-                .WriteToFile(System.IO.Path.Combine(outputPath, Filename));
-        }
-
-        public string Path { get; set; }
-        public string Args { get; set; }
-        public string WorkingDirectory { get; set; }
-        public string Filename { get; set; }
     }
 }

@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-
 using ShellLink;
-
 using Wororo.Utilities;
 
 // Some useful links:
@@ -17,22 +15,6 @@ namespace LnkSerialization.Core
     {
         public static string DefaultJsonFilename { get; set; } = "links.json";
         public static string DefaultLinksFolder { get; set; } = @"%userProfile%\shortcuts\";
-
-        public static void SerializeLinkFolder(string folderWithLinks, string outputJsonFilename = "")
-        {
-            if (folderWithLinks.IsEmpty())
-                folderWithLinks = DefaultLinksFolder;
-
-            if (outputJsonFilename.IsEmpty())
-                outputJsonFilename = Path.Combine(folderWithLinks, DefaultJsonFilename);
-
-            if (!Directory.Exists(folderWithLinks))
-                return;
-
-            var lnkFiles = Directory.GetFiles(folderWithLinks, "*.lnk");
-            var list = lnkFiles.Select(lnkFile => new LinkModel(lnkFile));
-            list.SerializeJson(outputJsonFilename);
-        }
 
         public static void DeserializeLinksToFolder(string jsonFilename, string outputFolder)
         {
@@ -51,14 +33,31 @@ namespace LnkSerialization.Core
             outputFolder.CreatePathIfNotExists();
             var links = JsonSerialization.DeserializeJson<IEnumerable<LinkModel>>(jsonFilename);
 
-            foreach (var linkModel in links)
+            foreach (var linkModel in links) {
                 linkModel.ToLinkFile(outputFolder);
+            }
         }
 
         public static void SerializeAsShortcutJson(string linkFile)
         {
             var lnkShortcut = Shortcut.ReadFromFile(linkFile);
             lnkShortcut.SerializeJson($"{Path.GetFileName(linkFile)}.json");
+        }
+
+        public static void SerializeLinkFolder(string folderWithLinks, string outputJsonFilename = "")
+        {
+            if (folderWithLinks.IsEmpty())
+                folderWithLinks = DefaultLinksFolder;
+
+            if (outputJsonFilename.IsEmpty())
+                outputJsonFilename = Path.Combine(folderWithLinks, DefaultJsonFilename);
+
+            if (!Directory.Exists(folderWithLinks))
+                return;
+
+            var lnkFiles = Directory.GetFiles(folderWithLinks, "*.lnk");
+            var list = lnkFiles.Select(lnkFile => new LinkModel(lnkFile));
+            list.SerializeJson(outputJsonFilename);
         }
     }
 }
