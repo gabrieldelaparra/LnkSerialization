@@ -14,10 +14,11 @@ Sometimes I need to change my shortcuts in batches:
 
 My setup is the following:
 
-1. Have a folder (`C:\shortcuts\`) that is on the `Path` Windows Environment Variables.
-2. In that folder, there is a `dl.lnk` shortcut to my `Downloads` folder.
-3. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
-4. Voilà!
+1. Have a folder (`C:\shortcuts\`) with your links.
+2. Add that folder to your Windows `Path` Environment Variables. (possible via `pathman /au c:\shortcuts`).
+3. Usage: In that folder, a `dl.lnk` shortcut to my `Downloads` folder exists.
+4. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
+5. Voilà!
 
 With this tool, the shortcuts can be serialized as a `.json` file.\
 This file can be easily edited and shared.\
