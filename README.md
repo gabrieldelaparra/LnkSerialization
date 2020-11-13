@@ -37,7 +37,7 @@ LnkSerialization serialize -i "Path\To\Shortcuts" -o "Path\To\backup.json"
 To deserialize a .json file to a shortcuts folder:
 
 ```
-LnkSerialization deserialize -i "Path\To\backup.json" -o "Path\To\backup.json" "Path\To\Shortcuts"
+LnkSerialization deserialize -i "Path\To\backup.json" -o "Path\To\Shortcuts"
 ```
 
 The repo comes with an `example.json` file with some starting links.
