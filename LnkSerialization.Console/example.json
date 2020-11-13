@@ -1,0 +1,38 @@
+[
+  {
+    "Path": "shell:Desktop",
+    "Args": "",
+    "WorkingDirectory": "",
+    "Filename": "d.lnk"
+  },
+  {
+    "Path": "shell:Downloads",
+    "Args": "",
+    "WorkingDirectory": "",
+    "Filename": "dl.lnk"
+  },
+  {
+    "Path": "C:\\Program Files\\Internet Explorer\\iexplore.exe",
+    "Args": "-extoff",
+    "WorkingDirectory": "C:\\Program Files\\Internet Explorer",
+    "Filename": "ie.lnk"
+  },
+  {
+    "Path": "shell:MyComputerFolder",
+    "Args": "",
+    "WorkingDirectory": "",
+    "Filename": "mypc.lnk"
+  },
+  {
+    "Path": "C:\\Dev\\shortcuts",
+    "Args": "",
+    "WorkingDirectory": "",
+    "Filename": "s.lnk"
+  },
+  {
+    "Path": "%windir%\\System32\\SnippingTool.exe",
+    "Args": "",
+    "WorkingDirectory": "%windir%",
+    "Filename": "snip.lnk"
+  }
+]

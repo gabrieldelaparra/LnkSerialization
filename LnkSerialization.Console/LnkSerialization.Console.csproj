@@ -14,4 +14,10 @@
     <ProjectReference Include="..\LnkSerialization.Core\LnkSerialization.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="example.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

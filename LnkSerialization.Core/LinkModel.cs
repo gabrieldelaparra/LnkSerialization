@@ -65,7 +65,6 @@ namespace LnkSerialization.Core
 
         public void ToLinkFile(string outputPath)
         {
-            //outputPath.CreatePathIfNotExists();
             Shortcut.CreateShortcut(Path, Args, WorkingDirectory)
                 .WriteToFile(System.IO.Path.Combine(outputPath, Filename));
         }
