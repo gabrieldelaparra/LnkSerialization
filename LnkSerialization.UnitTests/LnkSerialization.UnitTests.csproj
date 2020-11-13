@@ -28,9 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="Resources\20.lnk">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Update="Resources\d.lnk">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
