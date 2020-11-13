@@ -1,25 +1,27 @@
 # LnkSerialization
 
-Project to handle my shortcut links as a human-friendly editable/readable collection.
+Project to serialize/deserialize shortcut links as a human-friendly editable/readable json collection.
 
-In my work, I use the Win+R shortcuts **a lot** to access network folders, desktop, download or my different applications.
+In my daily chores, I use the Win+R shortcuts **a lot** to access network folders, desktop, download or my different applications.
 
-Sometimes I need to change my shortcuts batches:
+Sometimes I need to change my shortcuts in batches:
 
-- A network path changes
-- I want to programatically add new folders (new project folders)
+- A network path changes > multiple shortcuts are affected
+- I want to programatically add new folders (e.g.: new project folders)
 - I want to share my changes with other users: It is true that I can correctly create the shortcut with shortcuts as `%userProfile%`, but creating the shortcuts this way, takes longer.
-- Update the binaries path of a tool that changes its folder: `\App_v1\bin.exe\` to `\App_v2\bin.exe`.
+- Update the binaries path of a tool that changes its folder. e.g.: `\App_v1\bin.exe\` to `\App_v2\bin.exe`.
 - Others
 
 My setup is the following:
 
-1. Have a folder (`C:\shortcuts\`) that is on the `Path` Windows Environment Variable.
+1. Have a folder (`C:\shortcuts\`) that is on the `Path` Windows Environment Variables.
 2. In that folder, there is a `dl.lnk` shortcut to my `Downloads` folder.
 3. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
 4. Voilà!
 
-With this tool, the shortcuts can be serialized as a `.json` file. This file can be easily edited and shared. You can call your favorite tools and folders without navigating on your file explorer.
+With this tool, the shortcuts can be serialized as a `.json` file.\
+This file can be easily edited and shared.\
+You can call your favorite tools and folders without navigating on your file explorer.
 
 ## Usage
 
