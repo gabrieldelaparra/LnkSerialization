@@ -1,6 +1,8 @@
 # LnkSerialization
 
-Project to serialize/deserialize shortcut links as a human-friendly editable/readable json collection.
+Tool to serialize/deserialize shortcut links as a human-friendly editable/readable json collection.
+
+## Description
 
 In my daily chores, I use the Win+R shortcuts **a lot** to access network folders, desktop, download or my different applications.
 
@@ -9,13 +11,13 @@ Sometimes I need to change my shortcuts in batches:
 - A network path changes > multiple shortcuts are affected
 - I want to programatically add new folders (e.g.: new project folders)
 - I want to share my changes with other users: It is true that I can correctly create the shortcut with shortcuts as `%userProfile%`, but creating the shortcuts this way, takes longer.
-- Update the binaries path of a tool that changes its folder. e.g.: `\App_v1\bin.exe\` to `\App_v2\bin.exe`.
+- Update the binaries path of a tool that changes its folder. e.g.: `\App_v1\bin.exe` to `\App_v2\bin.exe`.
 - Others
 
 My setup is the following:
 
 1. Have a folder (`C:\shortcuts\`) with your links. (I have provided a `example.json` with some links. A deserialization is required. See below.)
-2. Add that folder to your Windows `Path` Environment Variables. (possible via `pathman /au c:\shortcuts`).
+2. Add that folder to your Windows `Path` Environment Variables. (possible via `setx path "%PATH%;C:\shortcuts"`).
 3. Usage: In that folder, a `dl.lnk` shortcut to my `Downloads` folder exists.
 4. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
 5. Voilà!
