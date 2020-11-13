@@ -14,7 +14,7 @@ Sometimes I need to change my shortcuts in batches:
 
 My setup is the following:
 
-1. Have a folder (`C:\shortcuts\`) with your links.
+1. Have a folder (`C:\shortcuts\`) with your links. (I have provided a `example.json` with some links. A deserialization is required. See below.)
 2. Add that folder to your Windows `Path` Environment Variables. (possible via `pathman /au c:\shortcuts`).
 3. Usage: In that folder, a `dl.lnk` shortcut to my `Downloads` folder exists.
 4. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
@@ -24,7 +24,7 @@ With this tool, the shortcuts can be serialized as a `.json` file.\
 This file can be easily edited and shared.\
 You can call your favorite tools and folders without navigating on your file explorer.
 
-## Usage
+## Tool usage
 
 To serialize a shortcuts folder to a .json file:
 
