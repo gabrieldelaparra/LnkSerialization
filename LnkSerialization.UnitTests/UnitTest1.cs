@@ -6,9 +6,8 @@ namespace LnkSerialization.UnitTests
     public class UnitTest1
     {
         [Fact]
-        public void Test1()
+        public void TestSerializeAllLinksAsShortcuts()
         {
-            //Core.LnkSerialization.ReadLnk("Resources/ie.lnk");
             var lnkFiles = Directory.GetFiles("Resources/", "*.lnk");
             foreach (var lnkFile in lnkFiles) {
                 Core.LnkSerialization.SerializeJson(lnkFile);    
