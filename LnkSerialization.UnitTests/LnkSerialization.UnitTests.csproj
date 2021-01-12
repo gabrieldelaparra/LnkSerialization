@@ -24,10 +24,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-		<Folder Include="Resources\" />
-	</ItemGroup>
-
-	<ItemGroup>
 		<None Update="Resources\d.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
@@ -40,11 +36,17 @@
 		<None Update="Resources\mypc.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Resources\non-working.lnk">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Resources\s.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Resources\snip.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Resources\working.lnk">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
 
