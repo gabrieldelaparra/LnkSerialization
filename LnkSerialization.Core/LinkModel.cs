@@ -22,8 +22,13 @@ namespace LnkSerialization.Core
 
         public void ToLinkFile(string outputPath)
         {
-            Shortcut.CreateShortcut(Path, Args, WorkingDirectory)
-                .WriteToFile(System.IO.Path.Combine(outputPath, Filename));
+            var s = Shortcut.CreateShortcut(Path, Args, WorkingDirectory);
+            s.LinkFlags = s.LinkFlags|ShellLink.Flags.LinkFlags.IsUnicode|ShellLink.Flags.LinkFlags.HasLinkTargetIDList;
+            s.LinkTargetIDList = new ShellLink.Structures.LinkTargetIDList
+            {
+                Path = Path
+            };
+            s.WriteToFile(System.IO.Path.Combine(outputPath, Filename));
         }
 
         private void FromArguments(string path, string args, string workingDirectory, string filename)
@@ -49,7 +54,8 @@ namespace LnkSerialization.Core
                        ?? shortcut.ExtraData?.EnvironmentVariableDataBlock?.TargetUnicode
                        ?? shortcut.ExtraData?.EnvironmentVariableDataBlock?.TargetAnsi
                        ?? string.Empty;
-            if (path.IsEmpty()) {
+            if (path.IsEmpty())
+            {
                 var propStoreValues = shortcut
                                           .ExtraData?
                                           .PropertyStoreDataBlock?
