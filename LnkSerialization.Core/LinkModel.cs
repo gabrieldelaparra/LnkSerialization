@@ -23,11 +23,14 @@ namespace LnkSerialization.Core
         public void ToLinkFile(string outputPath)
         {
             var s = Shortcut.CreateShortcut(Path, Args, WorkingDirectory);
-            s.LinkFlags = s.LinkFlags|ShellLink.Flags.LinkFlags.IsUnicode|ShellLink.Flags.LinkFlags.HasLinkTargetIDList;
-            s.LinkTargetIDList = new ShellLink.Structures.LinkTargetIDList
+            if (!Path.ToLower().StartsWith("http"))
             {
-                Path = Path
-            };
+                s.LinkFlags = s.LinkFlags | ShellLink.Flags.LinkFlags.IsUnicode | ShellLink.Flags.LinkFlags.HasLinkTargetIDList;
+                s.LinkTargetIDList = new ShellLink.Structures.LinkTargetIDList
+                {
+                    Path = Path
+                };
+            }
             s.WriteToFile(System.IO.Path.Combine(outputPath, Filename));
         }
 
