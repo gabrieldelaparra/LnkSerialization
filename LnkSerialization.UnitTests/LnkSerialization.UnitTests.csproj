@@ -33,10 +33,16 @@
 		<None Update="Resources\ie.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Resources\link-non-working.lnk">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Resources\link-working.url">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Resources\mypc.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Resources\non-working.lnk">
+		<None Update="Resources\dir-non-working.lnk">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 		<None Update="Resources\s.lnk">
@@ -45,7 +51,7 @@
 		<None Update="Resources\snip.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
-		<None Update="Resources\working.lnk">
+		<None Update="Resources\dir-working.lnk">
 		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
 	</ItemGroup>
