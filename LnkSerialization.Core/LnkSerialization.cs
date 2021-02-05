@@ -33,7 +33,12 @@ namespace LnkSerialization.Core
             outputFolder.CreatePathIfNotExists();
             var links = JsonSerialization.DeserializeJson<IEnumerable<LinkModel>>(jsonFilename);
 
+            var count = links.Count();
+            System.Console.WriteLine($"{count} entries found.");
+
+            var i = 0;
             foreach (var linkModel in links) {
+                System.Console.WriteLine($"Deserializing {linkModel.Filename} ({++i}/{count})");
                 linkModel.ToLinkFile(outputFolder);
             }
         }
