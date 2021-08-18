@@ -22,6 +22,10 @@ namespace LnkSerialization.Core
 
         public void ToLinkFile(string outputPath)
         {
+            if (Path.Count(x => x == '%') % 2 == 0)
+            {
+                Path = Environment.ExpandEnvironmentVariables(Path);
+            }
             var s = Shortcut.CreateShortcut(Path, Args, WorkingDirectory);
             if (!Path.ToLower().StartsWith("http"))
             {
