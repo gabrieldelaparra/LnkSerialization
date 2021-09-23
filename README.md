@@ -28,13 +28,13 @@ You can call your favorite tools and folders without navigating on your file exp
 
 ## Tool usage
 
-To serialize a shortcuts folder to a .json file:
+To serialize a folder with shortcuts to a .json file:
 
 ```
 LnkSerialization serialize -i "Path\To\Shortcuts" -o "Path\To\backup.json"
 ```
 
-To deserialize a .json file to a shortcuts folder:
+To deserialize a .json file to a folder with shortcuts:
 
 ```
 LnkSerialization deserialize -i "Path\To\backup.json" -o "Path\To\Shortcuts"
