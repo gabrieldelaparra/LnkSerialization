@@ -23,17 +23,35 @@ namespace LnkSerialization.UnitTests
         }
 
         [Fact]
+        public void TestLinkRunAsAdmin()
+        {
+            var adminModel = new Core.LinkModel("Resources/ie-admin.lnk");
+            Assert.True(adminModel.RunAsAdmin);
+            var noAdminModel = new Core.LinkModel("Resources/ie.lnk");
+            Assert.False(noAdminModel.RunAsAdmin);
+        }
+
+        [Fact]
+        public void TestLinkHasArgument()
+        {
+            var argsModel = new Core.LinkModel("Resources/ie-argument.lnk");
+            Assert.True(argsModel.Args.Length > 0);
+            var noArgsModel = new Core.LinkModel("Resources/ie.lnk");
+            Assert.True(noArgsModel.Args.Length == 0);
+        }
+
+        [Fact]
         public void TestSerializeNonWorkingLinkAsShortcuts()
         {
-            Core.LnkSerialization.SerializeAsShortcutJson("Resources/non-working.lnk");
+            Core.LnkSerialization.SerializeAsShortcutJson("Resources/dir-non-working.lnk");
         }
 
         [Fact]
         public void TestSerializeAndDeserializeNonWorkingLinkAsShortcuts()
         {
-            Core.LnkSerialization.SerializeAsShortcutJson("Resources/non-working.lnk");
-            var lnkModel = new Core.LinkModel("Resources/non-working.lnk");
-            JsonSerialization.SerializeJson(lnkModel, "non-working-AsLnkModel.json");
+            Core.LnkSerialization.SerializeAsShortcutJson("Resources/dir-non-working.lnk");
+            var lnkModel = new Core.LinkModel("Resources/dir-non-working.lnk");
+            JsonSerialization.SerializeJson(lnkModel, "dir-non-working-AsLnkModel.json");
             var outputFolder = "FromLnkModel/";
             outputFolder.CreatePathIfNotExists();
             lnkModel.ToLinkFile(outputFolder);
@@ -42,7 +60,7 @@ namespace LnkSerialization.UnitTests
         [Fact]
         public void TestSerializeWorkingLinkAsShortcuts()
         {
-            Core.LnkSerialization.SerializeAsShortcutJson("Resources/working.lnk");
+            Core.LnkSerialization.SerializeAsShortcutJson("Resources/dir-working.lnk");
         }
 
         [Fact]
@@ -58,21 +76,21 @@ namespace LnkSerialization.UnitTests
                 @"C:\Apps\settings\shortcuts.json");
         }
 
-        [Fact]
-        public void TestDeserializeMyProductionLinks()
-        {
-            Core.LnkSerialization.DeserializeLinksToFolder(@"C:\Apps\settings\shortcuts.json",
-                @"C:\Apps\settings\output\");
-        }
+        //[Fact]
+        //public void TestDeserializeMyProductionLinks()
+        //{
+        //    Core.LnkSerialization.DeserializeLinksToFolder(@"C:\Apps\settings\shortcuts.json",
+        //        @"C:\Apps\settings\output\");
+        //}
 
-        [Fact]
-        public void TestSerializeMyProductionLinksAsShortcuts()
-        {
-            var lnkFiles = Directory.GetFiles(@"C:\Apps\settings\shortcuts\", "*.lnk");
-            foreach (var lnkFile in lnkFiles)
-            {
-                Core.LnkSerialization.SerializeAsShortcutJson(lnkFile);
-            }
-        }
+        //    [Fact]
+        //    public void TestSerializeMyProductionLinksAsShortcuts()
+        //    {
+        //        var lnkFiles = Directory.GetFiles(@"C:\Apps\settings\shortcuts\", "*.lnk");
+        //        foreach (var lnkFile in lnkFiles)
+        //        {
+        //            Core.LnkSerialization.SerializeAsShortcutJson(lnkFile);
+        //        }
+        //    }
     }
 }
