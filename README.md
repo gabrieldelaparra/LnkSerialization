@@ -4,15 +4,8 @@ Tool to serialize/deserialize shortcut links as a human-friendly editable/readab
 
 ## Description
 
-In my daily chores, I use the Win+R shortcuts **a lot** to access network folders; the desktop and download folders; or my different applications.
-
-Sometimes I need to change my shortcuts in batches:
-
-- A network path changes > multiple shortcuts are affected
-- I want to programatically add new folders (e.g.: new project folders)
-- I want to share my changes with other users: It is true that I can correctly create the shortcut with shortcuts as `%userProfile%`, but creating the shortcuts this way, takes longer.
-- Update the binaries path of a tool that changes its folder. e.g.: `\App_v1\bin.exe` to `\App_v2\bin.exe`.
-- Others
+In my daily chores, I use the Win+R shortcuts **a lot** to access network folders, desktop, download, misc folders; or different applications.
+I have a path env to a shortcuts folder, so Win+R can call the links from there.
 
 My setup is the following:
 
@@ -22,19 +15,27 @@ My setup is the following:
 4. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
 5. Voilà!
 
-With this tool, the shortcuts can be serialized as a `.json` file.\
+Sometimes I need to change my shortcuts in batches:
+
+- A network path changes > multiple shortcuts are affected
+- I want to programatically add new folders (e.g.: new project folders)
+- I want to share my changes with other users: It is true that I can correctly create the shortcut with shortcuts as `%userProfile%`, but creating the shortcuts this way, takes longer.
+- Update the binaries path of a tool that changes its folder. e.g.: `\App_v1\bin.exe` to `\App_v2\bin.exe`.
+- Other reasons to update many shortcuts in batches (?)
+
+With this tool, the shortcuts can be serialized to a `.json` file.\
 This file can be easily edited and shared.\
 You can call your favorite tools and folders without navigating on your file explorer.
 
 ## Tool usage
 
-To serialize a shortcuts folder to a .json file:
+To serialize a folder with shortcuts to a .json file:
 
 ```
 LnkSerialization serialize -i "Path\To\Shortcuts" -o "Path\To\backup.json"
 ```
 
-To deserialize a .json file to a shortcuts folder:
+To deserialize a .json file to a folder with shortcuts:
 
 ```
 LnkSerialization deserialize -i "Path\To\backup.json" -o "Path\To\Shortcuts"
