@@ -2,7 +2,7 @@
 
 	<PropertyGroup>
 		<OutputType>Exe</OutputType>
-		<TargetFramework>net5.0</TargetFramework>
+		<TargetFramework>net7.0</TargetFramework>
 		<AssemblyName>LnkSerialization</AssemblyName>
 		<AssemblyVersion>1.0.2.0</AssemblyVersion>
 		<Version>1.0.2</Version>
