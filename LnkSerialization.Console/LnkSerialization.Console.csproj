@@ -4,8 +4,8 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net6.0</TargetFramework>
 		<AssemblyName>LnkSerialization</AssemblyName>
-		<AssemblyVersion>1.0.2.0</AssemblyVersion>
-		<Version>1.0.2</Version>
+		<AssemblyVersion>23.1.30.1</AssemblyVersion>
+		<Version>23.1.30.1</Version>
 		<StartupObject>LnkSerialization.Console.Program</StartupObject>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
 		<Title>Link Serialization</Title>
