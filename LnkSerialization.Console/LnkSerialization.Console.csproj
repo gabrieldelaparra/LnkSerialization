@@ -7,7 +7,19 @@
 		<AssemblyVersion>1.0.2.0</AssemblyVersion>
 		<Version>1.0.2</Version>
 		<StartupObject>LnkSerialization.Console.Program</StartupObject>
+		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+		<Title>Link Serialization</Title>
+		<RepositoryUrl>https://github.com/gabrieldelaparra/LnkSerialization</RepositoryUrl>
+		<PackageTags>lnk; link; shortcut; windows; util;</PackageTags>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Include="..\README.md">
+	    <Pack>True</Pack>
+	    <PackagePath>\</PackagePath>
+	  </None>
+	</ItemGroup>
 
 	<ItemGroup>
 		<PackageReference Include="CommandLineParser" Version="2.8.0" />
