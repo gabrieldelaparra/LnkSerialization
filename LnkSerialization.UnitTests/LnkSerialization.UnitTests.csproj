@@ -30,6 +30,12 @@
 		<None Update="Resources\dl.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>
+		<None Update="Resources\ie-admin.lnk">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Update="Resources\ie-argument.lnk">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
 		<None Update="Resources\ie.lnk">
 			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
 		</None>

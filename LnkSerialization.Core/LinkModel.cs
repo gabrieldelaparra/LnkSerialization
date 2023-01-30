@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using ShellLink;
+using ShellLink.Flags;
 using Wororo.Utilities;
 
 namespace LnkSerialization.Core
@@ -19,6 +20,7 @@ namespace LnkSerialization.Core
         public string Filename { get; set; }
         public string Path { get; set; }
         public string WorkingDirectory { get; set; }
+        public bool RunAsAdmin { get; set; }
 
         public void ToLinkFile(string outputPath)
         {
@@ -27,6 +29,10 @@ namespace LnkSerialization.Core
                 Path = Environment.ExpandEnvironmentVariables(Path);
             }
             var s = Shortcut.CreateShortcut(Path, Args, WorkingDirectory);
+            
+            if (RunAsAdmin) 
+                s.LinkFlags |= ShellLink.Flags.LinkFlags.RunAsUser;
+
             if (!Path.ToLower().StartsWith("http"))
             {
                 s.LinkFlags = s.LinkFlags | ShellLink.Flags.LinkFlags.IsUnicode | ShellLink.Flags.LinkFlags.HasLinkTargetIDList;
@@ -38,12 +44,13 @@ namespace LnkSerialization.Core
             s.WriteToFile(System.IO.Path.Combine(outputPath, Filename));
         }
 
-        private void FromArguments(string path, string args, string workingDirectory, string filename)
+        private void FromArguments(string path, string args, string workingDirectory, string filename, bool runAsAdmin)
         {
             Path = path;
             Args = args;
             WorkingDirectory = workingDirectory;
             Filename = filename;
+            RunAsAdmin = runAsAdmin;
         }
 
         private void FromFilename(string filename)
@@ -84,10 +91,11 @@ namespace LnkSerialization.Core
             }
 
             var args = shortcut.StringData?.CommandLineArguments ?? string.Empty;
+            var runAsAdmin = (shortcut.LinkFlags & LinkFlags.RunAsUser) != 0;
             var workingDir = shortcut.StringData?.WorkingDir ?? string.Empty;
             var name = System.IO.Path.GetFileName(filename);
 
-            FromArguments(path, args, workingDir, name);
+            FromArguments(path, args, workingDir, name, runAsAdmin);
         }
     }
 }
