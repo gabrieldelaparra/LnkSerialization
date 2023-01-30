@@ -4,7 +4,7 @@
 		<OutputType>Exe</OutputType>
 		<TargetFramework>net6.0</TargetFramework>
 		<AssemblyName>LnkSerialization</AssemblyName>
-		<AssemblyVersion>1.0.2.0</AssemblyVersion>
+		<AssemblyVersion>1.0.23030.1659</AssemblyVersion>
 		<Version>1.0.2</Version>
 		<StartupObject>LnkSerialization.Console.Program</StartupObject>
 		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
@@ -12,6 +12,7 @@
 		<RepositoryUrl>https://github.com/gabrieldelaparra/LnkSerialization</RepositoryUrl>
 		<PackageTags>lnk; link; shortcut; windows; util;</PackageTags>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<FileVersion>1.0.23030.1659</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

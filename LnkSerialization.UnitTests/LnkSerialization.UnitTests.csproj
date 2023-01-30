@@ -4,6 +4,10 @@
 		<TargetFramework>net6.0</TargetFramework>
 
 		<IsPackable>false</IsPackable>
+
+		<AssemblyVersion>1.0.23030.1659</AssemblyVersion>
+
+		<FileVersion>1.0.23030.1659</FileVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

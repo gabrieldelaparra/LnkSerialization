@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ShellLink;
@@ -11,58 +12,66 @@ using Wororo.Utilities;
 // https://ss64.com/nt/syntax-variables.html
 namespace LnkSerialization.Core
 {
-    public static class LnkSerialization
+  public static class LnkSerialization
+  {
+    public static string DefaultJsonFilename { get; set; } = "links.json";
+    public static string DefaultLinksFolder { get; set; } = @"%userProfile%\shortcuts\";
+
+    public static void DeserializeLinksToFolder(string jsonFilename, string outputFolder)
     {
-        public static string DefaultJsonFilename { get; set; } = "links.json";
-        public static string DefaultLinksFolder { get; set; } = @"%userProfile%\shortcuts\";
+      if (jsonFilename.IsEmpty()) {
+        jsonFilename = DefaultJsonFilename;
+      }
 
-        public static void DeserializeLinksToFolder(string jsonFilename, string outputFolder)
-        {
-            if (jsonFilename.IsEmpty())
-                jsonFilename = DefaultJsonFilename;
+      if (outputFolder.IsEmpty()) {
+        outputFolder = DefaultLinksFolder;
+      }
 
-            if (outputFolder.IsEmpty())
-                outputFolder = DefaultLinksFolder;
+      if (!outputFolder.EndsWith("\\")) {
+        outputFolder = $"{outputFolder}\\";
+      }
 
-            if (!outputFolder.EndsWith("\\"))
-                outputFolder = $"{outputFolder}\\";
+      if (!File.Exists(jsonFilename)) {
+        return;
+      }
 
-            if (!File.Exists(jsonFilename))
-                return;
+      outputFolder.CreatePathIfNotExists();
+      var links = JsonSerialization.DeserializeJson<IEnumerable<LinkModel>>(jsonFilename);
 
-            outputFolder.CreatePathIfNotExists();
-            var links = JsonSerialization.DeserializeJson<IEnumerable<LinkModel>>(jsonFilename);
+      var count = links.Count();
+      Console.WriteLine($"{count} entries found.");
 
-            var count = links.Count();
-            System.Console.WriteLine($"{count} entries found.");
+      var i = 0;
 
-            var i = 0;
-            foreach (var linkModel in links) {
-                System.Console.WriteLine($"Deserializing {linkModel.Filename} ({++i}/{count})");
-                linkModel.ToLinkFile(outputFolder);
-            }
-        }
-
-        public static void SerializeAsShortcutJson(string linkFile)
-        {
-            var lnkShortcut = Shortcut.ReadFromFile(linkFile);
-            lnkShortcut.SerializeJson($"{Path.GetFileName(linkFile)}.json");
-        }
-
-        public static void SerializeLinkFolder(string folderWithLinks, string outputJsonFilename = "")
-        {
-            if (folderWithLinks.IsEmpty())
-                folderWithLinks = DefaultLinksFolder;
-
-            if (outputJsonFilename.IsEmpty())
-                outputJsonFilename = Path.Combine(folderWithLinks, DefaultJsonFilename);
-
-            if (!Directory.Exists(folderWithLinks))
-                return;
-
-            var lnkFiles = Directory.GetFiles(folderWithLinks, "*.lnk");
-            var list = lnkFiles.Select(lnkFile => new LinkModel(lnkFile));
-            list.SerializeJson(outputJsonFilename);
-        }
+      foreach (var linkModel in links) {
+        Console.WriteLine($"Deserializing {linkModel.Filename} ({++i}/{count})");
+        linkModel.ToLinkFile(outputFolder);
+      }
     }
+
+    public static void SerializeAsShortcutJson(string linkFile)
+    {
+      var lnkShortcut = Shortcut.ReadFromFile(linkFile);
+      lnkShortcut.SerializeJson($"{Path.GetFileName(linkFile)}.json");
+    }
+
+    public static void SerializeLinkFolder(string folderWithLinks, string outputJsonFilename = "")
+    {
+      if (folderWithLinks.IsEmpty()) {
+        folderWithLinks = DefaultLinksFolder;
+      }
+
+      if (outputJsonFilename.IsEmpty()) {
+        outputJsonFilename = Path.Combine(folderWithLinks, DefaultJsonFilename);
+      }
+
+      if (!Directory.Exists(folderWithLinks)) {
+        return;
+      }
+
+      var lnkFiles = Directory.GetFiles(folderWithLinks, "*.lnk");
+      var list = lnkFiles.Select(lnkFile => new LinkModel(lnkFile));
+      list.SerializeJson(outputJsonFilename);
+    }
+  }
 }
