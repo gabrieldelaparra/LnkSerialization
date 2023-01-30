@@ -6,7 +6,7 @@
 
   <ItemGroup>
     <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
-    <PackageReference Include="Wororo.Utilities" Version="1.2.1.2" />
+    <PackageReference Include="Wororo.Utilities" Version="1.2.1.10" />
   </ItemGroup>
 
 </Project>
