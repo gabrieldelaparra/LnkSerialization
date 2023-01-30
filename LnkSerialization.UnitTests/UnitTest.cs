@@ -1,5 +1,7 @@
 using System.IO;
+
 using Wororo.Utilities;
+
 using Xunit;
 
 namespace LnkSerialization.UnitTests
@@ -69,12 +71,11 @@ namespace LnkSerialization.UnitTests
             Core.LnkSerialization.SerializeLinkFolder("Resources/");
         }
 
-        [Fact]
-        public void TestSerializeMyProductionLinks()
-        {
-            Core.LnkSerialization.SerializeLinkFolder(@"C:\Apps\settings\shortcuts\",
-                @"C:\Apps\settings\shortcuts.json");
-        }
+        //[Fact]
+        //public void TestSerializeMyProductionLinks()
+        //{
+        //    Core.LnkSerialization.SerializeLinkFolder(@"C:\Apps\settings\shortcuts\", @"C:\Apps\settings\shortcuts.json");
+        //}
 
         //[Fact]
         //public void TestDeserializeMyProductionLinks()
