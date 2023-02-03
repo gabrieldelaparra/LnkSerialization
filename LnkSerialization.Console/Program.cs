@@ -43,31 +43,23 @@ namespace LnkSerialization.Console
       Core.LnkSerialization.SerializeLinkFolder(options.InputPath, options.OutputFilename);
     }
 
-    [Verb("serialize",
-          HelpText =
-            "Serializes a folder with *.lnk files to a .json file.\nUses a custom link model for the serialization.")]
+    [Verb("serialize", HelpText = "Serializes a folder with *.lnk files to a .json file.\nUses a custom link model for the serialization.")]
     private class SerializeOptions
     {
-      [Option('i', "inputPath", Required = true,
-              HelpText = "Input folder with *.lnk files.\nExample: 'c:\\dirSource'")]
+      [Option('i', "inputPath", Required = true, HelpText = "Input folder with *.lnk files.\nExample: 'c:\\dirSource'")]
       public string InputPath { get; set; }
 
-      [Option('o', "outputfile", Required = true,
-              HelpText = "Output path to json filename.\nExample: 'c:\\dirBackup\\links.json'")]
+      [Option('o', "outputfile", Required = true, HelpText = "Output path to json filename.\nExample: 'c:\\dirBackup\\links.json'")]
       public string OutputFilename { get; set; }
     }
 
-    [Verb("deserialize",
-          HelpText =
-            "Takes a .json file with a collection of link models.\nDeserializes each link model to a *.lnk link.")]
+    [Verb("deserialize", HelpText = "Takes a .json file with a collection of link models.\nDeserializes each link model to a *.lnk link.")]
     private class DeserializeOptions
     {
-      [Option('i', "inputfile", Required = true,
-              HelpText = "Path to json filename that contains links.\nExample: 'c:\\dirBackup\\links.json'")]
+      [Option('i', "inputfile", Required = true, HelpText = "Path to json filename that contains links.\nExample: 'c:\\dirBackup\\links.json'")]
       public string InputFilename { get; set; }
 
-      [Option('o', "outputPath", Required = true,
-              HelpText = "Output folder where the *.lnk files will be created.\nExample: 'c:\\dirRestore'")]
+      [Option('o', "outputPath", Required = true, HelpText = "Output folder where the *.lnk files will be created.\nExample: 'c:\\dirRestore'")]
       public string OutputPath { get; set; }
     }
   }
