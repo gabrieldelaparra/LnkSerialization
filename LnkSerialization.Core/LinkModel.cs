@@ -1,9 +1,11 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+
 using ShellLink;
 using ShellLink.Flags;
 using ShellLink.Structures;
+
 using Wororo.Utilities;
 
 namespace LnkSerialization.Core
