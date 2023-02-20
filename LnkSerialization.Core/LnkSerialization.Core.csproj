@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <AssemblyVersion>1.0.23030.1659</AssemblyVersion>
-    <FileVersion>1.0.23030.1659</FileVersion>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <AssemblyVersion>1.0.23030.1659</AssemblyVersion>
+        <FileVersion>1.0.23030.1659</FileVersion>
+    </PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
-    <PackageReference Include="Wororo.Utilities" Version="1.2.1.10" />
-  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="securifybv.ShellLink" Version="0.1.0" />
+        <PackageReference Include="Wororo.Utilities" Version="1.2.1.10" />
+    </ItemGroup>
 
 </Project>

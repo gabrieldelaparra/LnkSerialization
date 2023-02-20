@@ -1,39 +1,39 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-	<PropertyGroup>
-		<OutputType>Exe</OutputType>
-		<TargetFramework>net6.0</TargetFramework>
-		<AssemblyName>LnkSerialization</AssemblyName>
-		<AssemblyVersion>1.0.23030.1659</AssemblyVersion>
-		<Version>1.0.2</Version>
-		<StartupObject>LnkSerialization.Console.Program</StartupObject>
-		<GeneratePackageOnBuild>True</GeneratePackageOnBuild>
-		<Title>Link Serialization</Title>
-		<RepositoryUrl>https://github.com/gabrieldelaparra/LnkSerialization</RepositoryUrl>
-		<PackageTags>lnk; link; shortcut; windows; util;</PackageTags>
-		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<FileVersion>1.0.23030.1659</FileVersion>
-	</PropertyGroup>
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <AssemblyName>LnkSerialization</AssemblyName>
+        <AssemblyVersion>1.0.23030.1659</AssemblyVersion>
+        <Version>1.0.2</Version>
+        <StartupObject>LnkSerialization.Console.Program</StartupObject>
+        <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+        <Title>Link Serialization</Title>
+        <RepositoryUrl>https://github.com/gabrieldelaparra/LnkSerialization</RepositoryUrl>
+        <PackageTags>lnk; link; shortcut; windows; util;</PackageTags>
+        <PackageReadmeFile>README.md</PackageReadmeFile>
+        <FileVersion>1.0.23030.1659</FileVersion>
+    </PropertyGroup>
 
-	<ItemGroup>
-	  <None Include="..\README.md">
-	    <Pack>True</Pack>
-	    <PackagePath>\</PackagePath>
-	  </None>
-	</ItemGroup>
+    <ItemGroup>
+        <None Include="..\README.md">
+            <Pack>True</Pack>
+            <PackagePath>\</PackagePath>
+        </None>
+    </ItemGroup>
 
-	<ItemGroup>
-		<PackageReference Include="CommandLineParser" Version="2.9.1" />
-	</ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="CommandLineParser" Version="2.9.1" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<ProjectReference Include="..\LnkSerialization.Core\LnkSerialization.Core.csproj" />
-	</ItemGroup>
+    <ItemGroup>
+        <ProjectReference Include="..\LnkSerialization.Core\LnkSerialization.Core.csproj" />
+    </ItemGroup>
 
-	<ItemGroup>
-		<None Update="example.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</None>
-	</ItemGroup>
+    <ItemGroup>
+        <None Update="example.json">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </None>
+    </ItemGroup>
 
 </Project>
