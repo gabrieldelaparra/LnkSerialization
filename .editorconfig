@@ -1,24 +1,74 @@
+# editorconfig.org
 
-[*.{appxmanifest,axml,build,config,csproj,dbml,discomap,dtd,jsproj,lsproj,njsproj,nuspec,proj,props,resw,resx,StyleCop,targets,tasks,vbproj,xml,xsd}]
+# top-most EditorConfig file
+root = true
+
+# Xaml files
+[*.{xaml,axaml, xamlx, xoml}]
+indent_style = space
+indent_size = 4
+
+# Xml project files
+[*.{csproj,vcxproj,vcxproj.filters,proj,nativeproj,locproj,vbproj,njsproj,lsproj,jsproj}]
+indent_size = 4
+
+# Xml build files
+[*.builds]
+indent_size = 2
+
+# Xml files
+[*.{xml,stylecop,resx,ruleset}]
+indent_size = 4
+
+# Xml config files
+[*.{props,targets,config,nuspec}]
+indent_size = 2
+
+#Other
+[*.{appxmanifest,axml,build,dbml,discomap,dtd,resw,tasks,xsd}]
 indent_size = 2
 indent_style = space
 tab_width = 2
 
-[*.{asax,ascx,aspx,axaml,cs,cshtml,css,htm,html,master,paml,razor,skin,vb,xaml,xamlx,xoml}]
-indent_size = 2
+[*.{asax,ascx,aspx,,cs,cshtml,css,htm,html,master,paml,razor,skin,vb,,,}]
+indent_size = 4
 indent_style = space
 tab_width = 2
+
+[*.cs]
+insert_final_newline = true
+indent_style = space
+indent_size = 4
+max_line_length = 220
+tab_width = 4
 
 [*]
 
 # Standard properties
 end_of_line = crlf
 
-# Microsoft .NET properties
-csharp_indent_braces = false
-csharp_indent_labels = one_less_than_current
+# New line preferences
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_anonymous_types = true
+csharp_new_line_between_query_expression_clauses = true
 csharp_new_line_before_members_in_object_initializers = false
 csharp_new_line_before_open_brace = events,indexers,local_functions,methods,properties,types
+
+# Indentation preferences
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = one_less_than_current
+
+# prefer var
+csharp_style_var_for_built_in_types = true
+csharp_style_var_when_type_is_apparent = true
+csharp_style_var_elsewhere = true:suggestion
+
+# Microsoft .NET properties
 csharp_prefer_braces = true:silent
 csharp_prefer_simple_default_expression = true:suggestion
 csharp_prefer_simple_using_statement = true:suggestion
@@ -59,9 +109,6 @@ csharp_style_prefer_utf8_string_literals = true:suggestion
 csharp_style_throw_expression = true:suggestion
 csharp_style_unused_value_assignment_preference = discard_variable:suggestion
 csharp_style_unused_value_expression_statement_preference = discard_variable:silent
-csharp_style_var_elsewhere = true:suggestion
-csharp_style_var_for_built_in_types = true:suggestion
-csharp_style_var_when_type_is_apparent = true:suggestion
 csharp_using_directive_placement = outside_namespace:silent
 dotnet_code_quality_unused_parameters = all:suggestion
 dotnet_naming_rule.constants_rule.import_to_resharper = as_predefined
@@ -168,9 +215,3 @@ resharper_redundant_base_qualifier_highlighting = warning
 resharper_suggest_var_or_type_built_in_types_highlighting = hint
 resharper_suggest_var_or_type_elsewhere_highlighting = hint
 resharper_suggest_var_or_type_simple_types_highlighting = hint
-
-[*.cs]
-indent_size = 2
-indent_style = space
-max_line_length = 200
-tab_width = 2
