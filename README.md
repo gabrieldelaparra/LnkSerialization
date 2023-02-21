@@ -11,7 +11,7 @@ My setup is the following:
 
 1. Have a folder (`C:\shortcuts\`) with your links. (I have provided a `example.json` with some links. A deserialization is required. See below.)
 2. Add that folder to your Windows `Path` Environment Variables. (possible via `setx path "%PATH%;C:\shortcuts"`).
-3. Usage: In that folder, a `dl.lnk` shortcut to my `Downloads` folder exists.
+3. Usage: In that (`C:\shortcuts\`) folder, add a `dl.lnk` shortcut to my `Downloads` folder.
 4. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
 5. Voilà!
 
