@@ -15,7 +15,7 @@ My setup is the following:
 4. Whenever I need to access the Downloads folder, I do a `Win+R` and run `dl`.
 5. Voilà!
 
-Sometimes I need to change my shortcuts in batches:
+Now, sometimes I need to change my shortcuts in batches:
 
 - A network path changes > multiple shortcuts are affected
 - I want to programatically add new folders (e.g.: new project folders)
